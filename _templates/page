@@ -1,7 +1,8 @@
 ---
 layout: {{ layout }}
 title: {{ title }}
-date: {{ date }}
-excerpt:
+excerpt: ""
 tags: []
+comments: false
+share: false
 ---

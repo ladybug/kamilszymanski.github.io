@@ -1,5 +1,5 @@
-- title: Posts
+- title: blog
   url: /posts/
 
-- title: About
-  url: /about/
+- title: activity
+  url: /activity/

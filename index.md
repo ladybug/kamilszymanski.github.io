@@ -1,5 +1,7 @@
 ---
 layout: home
-excerpt: "A minimal Jekyll theme for your blog by designer Michael Rose."
-tags: [Jekyll, theme, responsive, blog, template]
+excerpt: "Kamil Szymański's dev blog"
+tags: [blog, software, jvm, java, open source]
+comments: false
+share: false
 ---

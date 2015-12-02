@@ -1,7 +1,7 @@
 # Site wide configuration
 
-title:            Site Title
-locale:           en_US
+title: Under the hood
+locale: en_US
 url:
 
 
@@ -26,12 +26,12 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
-  avatar: bio-photo.jpg
-  bio: "Describe your self."
-  email:
+  name: Kamil Szymanski
+  avatar: default-thumb.png
+  bio: "software developer, JVM & open-source enthusiast"
+  email: kamil.szymanski.dev@gmail.com
   disqus-shortname:
-  twitter: #username
+  twitter: kszdev
   facebook: #username
   google:
     plus: #username
@@ -40,7 +40,7 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
-  github: #username
+  github: kamilszymanski
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
   linkedin: #username
   xing: #username
