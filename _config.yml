@@ -2,7 +2,7 @@
 
 title: Under the hood
 locale: en_US
-url:
+url: http://kamilszymanski.github.io
 
 
 # Jekyll configuration
@@ -30,12 +30,12 @@ owner:
   avatar: default-thumb.png
   bio: "software developer, JVM & open-source enthusiast"
   email: kamil.szymanski.dev@gmail.com
-  disqus-shortname:
+  disqus-shortname: kszdev-blog
   twitter: kszdev
   facebook: #username
   google:
     plus: #username
-    analytics:
+    analytics: UA-70935059-1
     verify:
     ad-client:
     ad-slot:
