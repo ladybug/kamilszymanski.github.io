@@ -9,7 +9,7 @@ share: false
 
 {% include _toc.html %}
 
-#speaker
+## speaker
 
 - 14/05/2015 - **A peek under Groovy's hood** (live coding) @ **GeeCon**
 - 20/04/2015 - **A peek under Groovy's hood** (live coding) @ **4Developers**
@@ -21,7 +21,7 @@ share: false
 - 27/11/2012 - **[Apache Cassandra: scalability, performance and fault tolerance in distributed databases](https://prezi.com/zwel4wrvolss/apache-cassandra/)** @ **Warsaw Java User Group**
 - 13/08/2012 - **[Messaging with RabbitMQ](https://prezi.com/bpisxqzcc4w3/messaging-with-rabbitmq/)** @ **PyWaw**
 
-# organizer
+## organizer
 
 For over 2 years (Dec. 2012 - Jan. 2015) I co-led **Warsaw Java User Group**.
 I also co-organized **Microservice hackathon**, **TestKata**, **GitKata** and 3 editions of **Warsjawa** workshop conference.
