@@ -3,7 +3,7 @@ layout: post
 title: Jenkins job DSL
 date: 2015-12-03T13:29:50+01:00
 excerpt: "Configuring Jenkins jobs via code using Groovy-based DSL"
-tags: [jenkins, dsl, job-dsl]
+tags: [jenkins, DSL, job-dsl]
 comments: true
 share: true
 ---
