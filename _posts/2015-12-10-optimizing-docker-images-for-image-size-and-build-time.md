@@ -83,7 +83,7 @@ a2c33fe967de5a01f3bfc3861add604115be0d82bd5192d29fc3ba97beedb831   7 months ago 
 {% endhighlight %}
 
 This clearly shows that chaining commands allows you to clean up layers before they are committed, but that doesn't mean you should put everything into a single layer.
-If you take another look at the output from previous commands you will spot that 3 bottom layers of both images have the same UUIDs which means they are shared between those images (and that's why `docker images` command reports virtual size of images).
+If you take another look at the output from previous commands you will spot that the 3 bottom layers of both images have the same UUIDs which means they are shared between those images (and that's why `docker images` command reports virtual size of images).
 One might say that disk space is so cheap that you should not bother about it but there are other aspects of caching image layers you should care about.
 One of the more important ones is image build time.
 Simply speaking if you can reuse a layer you don't need to build it.
@@ -97,7 +97,7 @@ A Dockerfile with tons of layers doesn't sound like maintainable one nor having 
 But more importantly layers don't come for free, depending on storage driver used there are some penalties to pay[^2].
 For example in AUFS each layer can introduce latency to container write performance[^3] on the first write to each file existing in the image layers stack, especially if the file is big and exists below many image layers.
 
-So in the end, as usual, it all boils down to knowing what you optimize for and consciously taking necessary compromises.
+So in the end, as usual, it all boils down to knowing what you optimize for and consciously making necessary compromises.
 
 [^1]: if you need an introduction or deep-dive into layers check [Docker documentation](https://docs.docker.com/)
 [^2]: consult your storage driver documentation for more details on it's performance
