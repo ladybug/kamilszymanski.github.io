@@ -24,4 +24,4 @@ share: false
 ## organizer
 
 For over 2 years (Dec. 2012 - Jan. 2015) I co-led **Warsaw Java User Group**.
-I also co-organized **Microservice hackathon**, **TestKata**, **GitKata** and 3 editions of **Warsjawa** workshop conference.
+I also co-organized **Microservices hackathon**, **TestKata**, **GitKata** and 3 editions of **Warsjawa** workshop conference.
