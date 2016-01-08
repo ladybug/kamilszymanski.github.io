@@ -3,7 +3,7 @@ layout: post
 title: Pretty printing JSON documents for further processing
 date: 2016-01-04T16:50:16+01:00
 excerpt: "Formatting JSON documents from command line and inside a text editor"
-tags: [json, productivity]
+tags: [json, command line, vim, gedit]
 comments: true
 share: true
 ---
