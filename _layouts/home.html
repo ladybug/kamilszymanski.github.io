@@ -44,6 +44,9 @@
       {% endif %}
     </article>
     {% endfor %}
+    {% if site.posts.size > 5 %}
+        <h4><a href="{{ site.url}}/posts/">&lt;more posts&gt;</a></h4>
+    {% endif %}
   </div><!-- /#index -->
 </div><!-- /#main -->
 
