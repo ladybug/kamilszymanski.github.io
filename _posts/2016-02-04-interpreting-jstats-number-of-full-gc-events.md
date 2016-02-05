@@ -103,4 +103,4 @@ Always validate your assumptions and [RTFM](https://xkcd.com/293/)!
 
 [^1]: Tom DeMarco
 [^2]: [Linux is borrowing unused memory for disk caching what makes it looks like you are low on memory while you are not](http://www.linuxatemyram.com/)
-[^3]: assuming no failures occurred
+[^3]: assuming there were no failures

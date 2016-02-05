@@ -3,3 +3,6 @@
 
 - title: activity
   url: /activity/
+
+- title: RSS feed
+  url: /feed.xml
