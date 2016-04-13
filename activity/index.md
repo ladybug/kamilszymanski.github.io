@@ -11,6 +11,7 @@ share: false
 
 ## speaker
 
+- 11/04/2016 - **Architecting your codebase** (live coding) @ **4Developers**
 - 14/05/2015 - **A peek under Groovy's hood** (live coding) @ **GeeCon**
 - 20/04/2015 - **A peek under Groovy's hood** (live coding) @ **4Developers**
 - 09/04/2015 - **A peek under Groovy's hood** (live coding) @ **Warsaw Groovy User Group**
