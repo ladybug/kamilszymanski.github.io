@@ -1,11 +1,10 @@
 ---
-layout: post
 title: Interpreting jstat's number of Full GC events
 date: 2016-02-04T23:58:26+01:00
 excerpt: "How results of your measurements can drift from reality when you don't validate your assumptions"
-tags: [jstat, GC, JVM]
-comments: true
-share: true
+tags:
+  - jvm
+  - java
 ---
 
 "You can't control what you can't measure"[^1] and you want to control things, you don't want to just bet on luck.
@@ -15,11 +14,11 @@ It's not hard to find examples of misinterpreted measurement results with the `f
 Often lack of understanding of used terminology or it's ambiguity can be accounted for it.
 For example let's look at `jstat` output for a Java process:
 
-{% highlight console %}
+```sh
 $ jstat -gc -t 4648 1s
 Timestamp        S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT   
            19.4 8704.0 8704.0  0.0   8704.0 69952.0  12416.7   240928.0   173395.8  154352.0 149283.9 22180.0 20722.4     27    0.594   8      0.231    0.825
-{% endhighlight %}
+```
 
 Anyone knowing JVM Garbage Collection basics should have no trouble telling what those values mean, shouldn't he?
 Well let's try: EC stands for Eden space Capacity, EU denotes Eden space Usage, S0C - Survivor space 0 Capacity, YGC - number of Young generation Garbage Collections, YGCT - Young generation Garbage Collection Time, and so on.
@@ -27,18 +26,18 @@ Well let's try: EC stands for Eden space Capacity, EU denotes Eden space Usage, 
 Pretty obvious, isn't it?
 So let's gather statistics for the old generation (and metaspace) and answer the question how many Full GCs were performed?
 
-{% highlight console %}
+```sh
 $ jstat -gcold -t 5007 1s
 Timestamp          MC       MU      CCSC     CCSU       OC          OU       YGC    FGC    FGCT     GCT   
            11.7 113064.0 109246.8  16156.0  14883.7    174784.0    115285.4     13     4    0.079    0.368
-{% endhighlight %}
+```
 
 If your answer is 4 you might be correct or far from being correct.
 It all depends on which garbage collector monitored Java process is using.
 For Parallel GC 4 is the correct answer, but for CMS the correct[^3] answer is 2.
 If you don't believe me check the GC logs from the same Java process run:
 
-{% highlight console %}
+```sh
 0.408: [GC (Allocation Failure) 0.408: [ParNew: 69952K->8704K(78656K), 0.0396199 secs] 69952K->21786K(253440K), 0.0397117 secs] [Times: user=0.12 sys=0.02, real=0.04 secs] 
 1.213: [GC (Allocation Failure) 1.213: [ParNew: 78656K->8704K(78656K), 0.0115476 secs] 91738K->29967K(253440K), 0.0116237 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
 2.152: [GC (Allocation Failure) 2.152: [ParNew: 78656K->8704K(78656K), 0.0176088 secs] 99919K->38548K(253440K), 0.0176831 secs] [Times: user=0.11 sys=0.00, real=0.02 secs] 
@@ -77,11 +76,11 @@ If you don't believe me check the GC logs from the same Java process run:
 10.602: [GC (Allocation Failure) 10.602: [ParNew: 78656K->8704K(78656K), 0.0364558 secs] 159514K->104422K(253440K), 0.0365486 secs] [Times: user=0.14 sys=0.00, real=0.04 secs] 
 11.523: [GC (Allocation Failure) 11.523: [ParNew: 78656K->8704K(78656K), 0.0380868 secs] 174374K->123989K(253440K), 0.0381740 secs] [Times: user=0.23 sys=0.00, real=0.04 secs] 
 12.274: [GC (Allocation Failure) 12.274: [ParNew: 78656K->8704K(78656K), 0.0313268 secs] 193941K->136954K(253440K), 0.0314313 secs] [Times: user=0.17 sys=0.00, real=0.03 secs] 
-{% endhighlight %}
+```
 
 `jstat` man-pages say that FGC stands for the number of Full GC events, so let's take another look at the GC logs, this time limiting them to single CMS cycle:
 
-{% highlight console %}
+```sh
 2.170: [GC (CMS Initial Mark) [1 CMS-initial-mark: 29844K(174784K)] 39075K(253440K), 0.0021170 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
 2.172: [CMS-concurrent-mark-start]
 2.185: [CMS-concurrent-mark: 0.013/0.013 secs] [Times: user=0.08 sys=0.00, real=0.02 secs] 
@@ -94,7 +93,7 @@ If you don't believe me check the GC logs from the same Java process run:
 2.688: [CMS-concurrent-sweep: 0.011/0.012 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
 2.688: [CMS-concurrent-reset-start]
 2.696: [CMS-concurrent-reset: 0.008/0.008 secs] [Times: user=0.04 sys=0.01, real=0.01 secs] 
-{% endhighlight %}
+```
 
 You can clearly see that CMS performs its work in several phases but just 2 of them (Initial Mark and Final Remark) count as GC events, only those that are stop-the-world phases.
 

@@ -1,11 +1,9 @@
 ---
-layout: post
 title: Fine-tuning psql
 date: 2016-01-08T10:24:39+01:00
 excerpt: "Fine-tuning PostgreSQL CLI client"
-tags: [psql, postgresql]
-comments: true
-share: true
+tags:
+  - postgresql
 ---
 
 I like tools that allow you to stay efficient and one of such tools is psql.

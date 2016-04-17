@@ -1,11 +1,11 @@
 ---
-layout: post
 title: Pretty printing JSON documents for further processing
 date: 2016-01-04T16:50:16+01:00
 excerpt: "Formatting JSON documents from command line and inside a text editor"
-tags: [json, command line, vim, gedit]
-comments: true
-share: true
+tags:
+  - command line
+  - vim
+  - gedit
 ---
 
 APIs are primarily designed for computers, not for humans, yet sometimes you need to dig into raw response from such APIs.
@@ -15,12 +15,15 @@ There are many browser addons such as [Postman](https://www.getpostman.com/) or 
 Of course also browser addons provide useful features (e.g. request history) that make you more productive but for this blog post we're gonna assume that our case is easier to solve without leaving the command line or text editor.
 
 Let's take a look at a simple response from GitHub Status API. Looking at the raw payload doesn't feel home:
-{% highlight bash %}
+
+```sh
 $ curl -s https://status.github.com/api/messages.json
 [{"status":"good","body":"Everything operating normally.","created_on":"2015-12-29T17:25:32Z"},{"status":"minor","body":"We're investigating increased error rates with some git operations.","created_on":"2015-12-29T17:06:54Z"}]
-{% endhighlight %}
+```
+
 but a simple pipe to Python module makes it much more readable:
-{% highlight bash %}
+
+```sh
 $ curl -s https://status.github.com/api/messages.json | python -m json.tool
 [
     {
@@ -34,7 +37,8 @@ $ curl -s https://status.github.com/api/messages.json | python -m json.tool
         "status": "minor"
     }
 ]
-{% endhighlight %}
+```
+
 and moreover allows you to pipe it further.
 
 So simple, yet so powerful and if you need to go over a record of such requests or just need to use a text editor it doesn't get more complicated.

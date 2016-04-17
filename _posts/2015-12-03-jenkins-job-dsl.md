@@ -1,11 +1,10 @@
 ---
-layout: post
 title: Jenkins job DSL
 date: 2015-12-03T13:29:50+01:00
 excerpt: "Configuring Jenkins jobs via code using Groovy-based DSL"
-tags: [jenkins, DSL, job-dsl]
-comments: true
-share: true
+tags:
+  - jenkins
+  - job-dsl
 ---
 
 No that long ago one of our engineers made a mistake while running Jenkins CLI script and removed all jobs apart from the ones he wanted to remove.
@@ -19,7 +18,7 @@ Let me introduce Jenkins [Job DSL / Plugin](https://github.com/jenkinsci/job-dsl
 But before we jump into job-dsl lets take a step back and take a brief look at how Jenkins jobs are configured.
 If you create a new job and go to `http://<JENKINS_HOST>/job/<JOB_NAME>/config.xml` you will get the following XML:
 
-{% highlight xml %}
+```xml
 <project>
   <actions/>
   <description/>
@@ -36,24 +35,24 @@ If you create a new job and go to `http://<JENKINS_HOST>/job/<JOB_NAME>/config.x
   <publishers/>
   <buildWrappers/>
 </project>
-{% endhighlight %}
+```
 
 Not that interesting so let's add `Execute shell` build step that prints `Hello world!`.
 Immediately you will see changes to `builders` node in `config.xml`:
 
-{% highlight xml %}
+```xml
 <builders>
   <hudson.tasks.Shell>
     <command>echo 'Hello world!'</command>
   </hudson.tasks.Shell>
 </builders>
-{% endhighlight %}
+```
 
 *If you want to view changes to XML on each change made install [JobConfigHistory plugin](https://wiki.jenkins-ci.org/display/JENKINS/JobConfigHistory+Plugin).*
 
 Still nothing spectacular, so let's parameterize the build and look at the changes to `config.xml` where `properties` node should now contain parameter definition:
 
-{% highlight xml %}
+```xml
 <properties>
   <hudson.model.ParametersDefinitionProperty>
     <parameterDefinitions>
@@ -65,40 +64,40 @@ Still nothing spectacular, so let's parameterize the build and look at the chang
     </parameterDefinitions>
   </hudson.model.ParametersDefinitionProperty>
 </properties>
-{% endhighlight %}
+```
 
 and `Execute shell` build step should reflect that we're using this parameter in `echo` command:
 
-{% highlight xml %}
+```xml
 <builders>
   <hudson.tasks.Shell>
     <command>echo $MESSAGE</command>
   </hudson.tasks.Shell>
 </builders>
-{% endhighlight %}
+```
 
 Even though I haven't told what steps I had taken you shouldn't have trouble replaying them - those XMLs are descriptive enough (as for XML).
 
 Ok, it's getting boring so let's do something more sophisticated and install [Rebuild plugin](https://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin) to help us re-run parameterized jobs.
 Installing this plugin should yield no changes to existing jobs (in the end they run on plugin defaults) but when you create a new job you should find Rebuild plugin configuration under `properties` node:
 
-{% highlight xml %}
+```xml
 <properties>
   <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
     <autoRebuild>false</autoRebuild>
     <rebuildDisabled>false</rebuildDisabled>
   </com.sonyericsson.rebuild.RebuildSettings>
 </properties>
-{% endhighlight %}
+```
 
 Now after we enable `Rebuild Without Asking For Parameters` for our existing job it can be re-run with previous parameters without having to go through a view listing all the parameters as reflected in `com.sonyericsson.rebuild.RebuildSettings` node:
 
-{% highlight xml %}
+```xml
 <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
   <autoRebuild>true</autoRebuild>
   <rebuildDisabled>false</rebuildDisabled>
 </com.sonyericsson.rebuild.RebuildSettings>
-{% endhighlight %}
+```
 
 Still boring as XML (pun intended), fortunately Groovy makes working with XML much more pleasant and has fantastic capabilities for writing DSLs.
 This, along with Jenkins built-in Groovy support (it features a Groovy script console that I already mentioned in this post), makes a perfect match for [job-dsl plugin]((https://github.com/jenkinsci/job-dsl-plugin)) that we're going to explore now.
@@ -107,7 +106,7 @@ Let's start with the DSL and try to get the equivalent of `config.xml` with Groo
 Armed with [API docs](https://jenkinsci.github.io/job-dsl-plugin/) (*should you feel lost start from `buildFlowJob` node*) take a moment and experiment on [Job DSL Playground](http://job-dsl.herokuapp.com/).
 You should end up with a script similar to this one:
 
-{% highlight groovy %}
+```groovy
 job('parameterized-hello-world') {
    parameters {
      stringParam('MESSAGE', 'Hello world!') 
@@ -121,7 +120,7 @@ job('parameterized-hello-world') {
     shell('echo $MESSAGE')
   }
 }
-{% endhighlight %}
+```
 
 Way more friendly than XML and it's code that you can put under version control.
 Moreover you don't have to click through GUI to get this configuration.
