@@ -11,7 +11,7 @@ title                    : "Under the hood"
 title_separator          : "-"
 name                     : "Kamil Szymański"
 description              : "Kamil Szymański's dev blog"
-url                      : "//kamilszymanski.github.io"
+url                      : "http://kamilszymanski.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
