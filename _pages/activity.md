@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 05/05/2016 - **Architecting your codebase** (live coding) @ **Warsaw Spring Labs**
 - 11/04/2016 - **Architecting your codebase** (live coding) @ **4Developers**
 - 14/05/2015 - **A peek under Groovy's hood** (live coding) @ **GeeCon**
 - 20/04/2015 - **A peek under Groovy's hood** (live coding) @ **4Developers**
