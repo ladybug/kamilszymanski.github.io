@@ -10,7 +10,8 @@ permalink: /activity/
 
 ## speaker
 
-- 12/05/2016 - **Creating Jenkins pipelines with groovy-based DSL** (live coding) @ **GeeCON**
+- 17/05/2016 - **Creating Jenkins pipelines with groovy-based DSL** (live demo) @ **Atmosphere**
+- 12/05/2016 - **Creating Jenkins pipelines with groovy-based DSL** (live demo) @ **GeeCON**
 - 05/05/2016 - **Architecting your codebase** (live coding) @ **Warsaw Spring Labs**
 - 11/04/2016 - **Architecting your codebase** (live coding) @ **4Developers**
 - 14/05/2015 - **A peek under Groovy's hood** (live coding) @ **GeeCON**
