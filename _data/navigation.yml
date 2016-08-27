@@ -1,4 +1,7 @@
 main:
+  - title: recent posts
+    url: /
+
   - title: archive
     url: /archive/
 
