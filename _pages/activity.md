@@ -10,6 +10,8 @@ permalink: /activity/
 
 ## speaker
 
+- 16/09/2016 - **Contextual debugging** (live demo) @ **Codemotion Warsaw**
+- 15/09/2016 - **Creating Jenkins pipelines with groovy-based DSL** (live demo) @ **Codemotion Warsaw**
 - 02/07/2016 - **Creating Jenkins pipelines with groovy-based DSL** (live demo) @ **Confitura**
 - 22/06/2016 - **Creating Jenkins pipelines with groovy-based DSL** (live demo) @ **DevOps Warsaw**
 - 19/05/2016 - **Architecting your codebase** (live coding) @ **Spring I/O**
