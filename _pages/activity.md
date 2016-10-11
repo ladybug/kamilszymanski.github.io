@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 11/10/2016 - **Architecting your codebase** (live coding) @ **JDD**
 - 01/10/2016 - **Architecting your codebase** (live coding) @ **CareerCon**
 - 16/09/2016 - **Contextual debugging** (live demo) @ **Codemotion Warsaw**
 - 15/09/2016 - **Creating Jenkins pipelines with groovy-based DSL** (live demo) @ **Codemotion Warsaw**
