@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 31/01/2017 - **Architecting your codebase** (live coding) @ **Polish Java User Group**
 - 11/10/2016 - **Architecting your codebase** (live coding) @ **JDD**
 - 01/10/2016 - **Architecting your codebase** (live coding) @ **CareerCon**
 - 16/09/2016 - **Contextual debugging** (live demo) @ **Codemotion Warsaw**
