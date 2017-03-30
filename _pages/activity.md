@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 27/03/2017 - **Jenkins pipelines as code with Job DSL** (workshop) @ **Warsaw Groovy User Group**
 - 31/01/2017 - **Architecting your codebase** (live coding) @ **Polish Java User Group**
 - 11/10/2016 - **Architecting your codebase** (live coding) @ **JDD**
 - 01/10/2016 - **Architecting your codebase** (live coding) @ **CareerCon**
