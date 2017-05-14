@@ -43,7 +43,7 @@ By default psql prints `NULL` values as blank spaces, but you can alter it by se
 
 ![alt text](../images/posts/fine-tuning-psql/printing-null-values.png "printing NULL values")
 
-### Pager behaviour
+### Pager behavior
 
 By default psql uses a pager to paginate text when it deems it necessary but you can make it always always use (`\pset pager always`) or even disable it (`\pset pager off`).
 You can even change the pager itself by setting `PAGER` environment variable.
