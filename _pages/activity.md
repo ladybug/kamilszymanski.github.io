@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 01/07/2017 - **Reactive web services** (live coding) @ **Confitura**
 - 27/06/2017 - **Reactive web services** (live coding) @ **Polish Java User Group**
 - 06/06/2017 - **Nailing down bugs in distributed systems** (live demo) @ **OSEC Forum**
 - 30/03/2017 - **Jenkins pipelines as code with Job DSL** (workshop) @ **Greach**
