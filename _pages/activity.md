@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 22/08/2017 - **Reactive web services** (live coding) @ **OSEC Barcamp**
 - 01/07/2017 - **Reactive web services** (live coding) @ **Confitura**
 - 27/06/2017 - **Reactive web services** (live coding) @ **Polish Java User Group**
 - 06/06/2017 - **Nailing down bugs in distributed systems** (live demo) @ **OSEC Forum**
