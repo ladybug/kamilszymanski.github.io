@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 26/09/2017 - **Reactive web services** (live coding) @ **Warsaw Java User Group**
 - 18/09/2017 - **Reactive web services** (live coding) @ **4Developers Gdańsk**
 - 22/08/2017 - **Reactive web services** (live coding) @ **OSEC Barcamp**
 - 01/07/2017 - **Reactive web services** (live coding) @ **Confitura**
