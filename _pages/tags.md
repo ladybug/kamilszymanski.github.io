@@ -1,5 +1,5 @@
 ---
-title: tags
+title: "posts by tags"
 excerpt: "Posts by tags"
 layout: archive
 author_profile: true

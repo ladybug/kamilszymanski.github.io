@@ -280,8 +280,7 @@ Mono<String> fetchValue() {
 
 However it's just a different way of defining request handlers and it doesn't make your application run faster nor use less threads.
 
-As we have seen reactive implementations can't bend the laws of physics, we still need to mind threads (as well as other resources).
-Simply going reactive does not imply making your services faster or use less resources, so why there is so much buzz around it?
+As we have seen simply going reactive does not imply making your services faster or use less resources, so why there is so much buzz around it?
 Well if you compare how much simpler and safer it is to control where and how your logic is being executed with reactive APIs:
 
 ```java
