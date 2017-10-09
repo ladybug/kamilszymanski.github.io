@@ -96,7 +96,7 @@ Shortest transaction:       1.00
 ```
 The actual numbers are not that interesting (yes, we went close to 100 TPS) as threads usage:
 
-![alt text](../images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_classic_servlet_based_service.png "threads activity during 100 concurrent requests to classic servlet-based service")
+![alt text](../assets/images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_classic_servlet_based_service.png "threads activity during 100 concurrent requests to classic servlet-based service")
 
 We start with less than 50 live threads in and when 100 users hit the service we quickly reach almost 150 live threads and keep them alive for some time after the traffic is gone just in case they could be reused.
 It's worth pointing out that we are limited by the number of worker threads and once we exceed that number of concurrent requests we will start queuing.
@@ -193,7 +193,7 @@ Shortest transaction:       1.00
 Now we are getting similar results as we had on non-reactive implementation running on Tomcat with default 200 worker threads.
 Even threads usage looks similar:
 
-![alt text](../images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_netty.png "threads activity during 100 concurrent requests to reactive service running on Netty")
+![alt text](../assets/images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_netty.png "threads activity during 100 concurrent requests to reactive service running on Netty")
 
 The only thing we got rid of is the the worker thread limit that got replaced with unbounded Schedulers.elastic() thread pool.
 Of course we can (and often should) replace Schedulers.elastic() with a scheduler over which we have full control (e.g. [by creating one based on an ExecutorService](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html#fromExecutorService-java.util.concurrent.ExecutorService-)).
@@ -225,7 +225,7 @@ Shortest transaction:       1.00
 
 The TPS rates are not surprising but threads usage is:
 
-![alt text](../images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_tomcat_outside_of_worker_thread_pool.png "threads activity during 100 concurrent requests to reactive service running on Tomcat and using separate threads to process requests")
+![alt text](../assets/images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_tomcat_outside_of_worker_thread_pool.png "threads activity during 100 concurrent requests to reactive service running on Tomcat and using separate threads to process requests")
 
 We are using much more threads than we used to and some of those threads are kept alive longer than the others.
 Let's take another look at the implementation and try to find the reason of such behavior:
@@ -253,7 +253,7 @@ Mono<String> fetchValue() {
 }
 ```
 
-![alt text](../images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_tomcat_on_worker_thread_pool.png "threads activity during 100 concurrent requests to reactive service running on Tomcat and using worker threads to process requests")
+![alt text](../assets/images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_tomcat_on_worker_thread_pool.png "threads activity during 100 concurrent requests to reactive service running on Tomcat and using worker threads to process requests")
 
 We are still getting similar TPS rates but this time using similar number of threads as for non-reactive implementation (mind that once we switched to Tomcat the worker thread limit is back).
 

@@ -37,12 +37,12 @@ DateTime eventEnd = new DateTime(2016, 3, 27, 3, 40, WARSAW_TIME);
 Not being able to deduct where the problem lies by reasoning about the code we run it through a debugger.
 Based on the inputs we assume that `PricePlan.REGULAR` and a duration equal to `2 hours 10 minutes` (in milliseconds [^1]) is passed in to the `estimateCost` method.
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningless_duration_representation.png "debugger displays values of used variables")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningless_duration_representation.png "debugger displays values of used variables")
 
 The debugger shows us that we indeed pass in `PricePlan.REGULAR` as the first parameter and some duration as the second one.
 Unfortunately the way [org.joda.time.Duration](http://www.joda.org/joda-time/apidocs/org/joda/time/Duration.html) value is presented to us is meaningless, thus we have to manually evaluate an expression to get the data we need:
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/code_fragment_evaluation.png "evaluating code fragment to get the length of event duration")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/code_fragment_evaluation.png "evaluating code fragment to get the length of event duration")
 
 We can see that event duration is equal to `1 hour 10 minutes` instead of `2 hours 10 minutes`.
 Before we dig into the why, let's focus on how can we make this information easily accessible by using custom type renderer.
@@ -54,15 +54,15 @@ org.joda.time.format.PeriodFormat.getDefault()
     .print(this.toPeriod())
 ```
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/duration_type_renderer.png "duration type renderer")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/duration_type_renderer.png "duration type renderer")
 
 Now the data displayed by the debugger starts being useful:
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningful_duration_representation.png "debugger displays event duration in a meaningful way")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningful_duration_representation.png "debugger displays event duration in a meaningful way")
 
 Having significant data on the first plan let's go back to analyzing why the duration of an event that starts at `1:30 Warsaw Time` and ends at `3:40 Warsaw Time` is `1 hour 10 minutes` instead of `2 hours 10 minutes`.
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/event_start_and_end_dates.png "event start and end dates")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/event_start_and_end_dates.png "event start and end dates")
 
 As I mentioned in the beginning it's easy to overlook important data when you are filtering out noise by yourself.
 You want that noise to be automatically filtered out.
@@ -75,24 +75,24 @@ org.joda.time.DateTimeZone.forID("Europe/Warsaw")
     .getOffset(this) == 3600000 ? "standard" : "daylight saving"
 ```
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/datetime_type_renderer.png "datetime type renderer")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/datetime_type_renderer.png "datetime type renderer")
 
 Yes, you guessed it right, there was a time change between the start and the end of an event:
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningful_datetime_offsets_representation.png "debugger displays that dates have different time offsets")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningful_datetime_offsets_representation.png "debugger displays that dates have different time offsets")
 
 On `27 March 2016` at `2:00` in `Europe/Warsaw` time zone clocks are turned forward by 1 hour to change from [Central European Time](https://en.wikipedia.org/wiki/Central_European_Time) to [Central European Summer Time](https://en.wikipedia.org/wiki/Central_European_Summer_Time) "so that evening daylight lasts an hour longer, while sacrificing normal sunrise times"[^2].
 Now the debugger clearly says it but at the same time makes it hard to figure out what time those [org.joda.time.DateTime](http://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html) values represent:
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningless_datetime_node_representation.png "meaningless datetime representation in the data view")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningless_datetime_node_representation.png "meaningless datetime representation in the data view")
 
 Let's make that information easily available by further configuring [org.joda.time.DateTime](http://www.joda.org/joda-time/apidocs/org/joda/time/DateTime.html) type renderer, this time focusing on how those values are represented after node expansion in the data view:
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/datetime_list_expressions.png "datetime type renderer with list expressions")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/datetime_list_expressions.png "datetime type renderer with list expressions")
 
 With the simple `this.toString()` expression we get exactly what we need:
 
-![alt text](../images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningful_datetime_node_representation.png "meaningful datetime representation in the data view")
+![alt text](../assets/images/posts/custom_type_renderers_in_intellij_idea_debugger/meaningful_datetime_node_representation.png "meaningful datetime representation in the data view")
 
 As you have seen in this simplistic example custom type renderers can make your debugging session way easier by hiding irrelevant data and putting significant data on the first plan.
 Another noteworthy aspect of custom type renderers is that they automatically re-render all displayed variables after any change made to their definition (including creation and removal) so that you don't have to rerun your debugging session.

@@ -22,7 +22,7 @@ If this dataset is larger than what we can fit into memory or if there are many 
 And even if we have heap large enough to handle such cases there's a high chance that our client's won't be that lucky and would fail with OutOfMemoryError reading the response.
 Moreover there is an often overlooked latency issue hidden there - with such implementation client can start processing that dataset only after it's fully loaded, serialized and delivered to him by the server:
 
-![alt text](../images/posts/serving-large-datasets-with-spring-webflux/single-json-document.gif "returning whole dataset at once")
+![alt text](../assets/images/posts/serving-large-datasets-with-spring-webflux/single-json-document.gif "returning whole dataset at once")
 
 Such problems are usually mitigated to some extent by introducing paging.
 However if client is interested in the whole dataset he now has to issue multiple requests which is not the most convenient solution (not to mention that if no consistency control mechanisms are in place he might get duplicates and/or miss some data).
@@ -61,7 +61,7 @@ Flux<Item> allItems() {
 As you can see we're still returning a Flux of Items however now the response has different mediatype.
 Now instead of returning one large serialized JSON document containing all Items we return a stream of individually serialized Items (a stream of JSON documents):
 
-![alt text](../images/posts/serving-large-datasets-with-spring-webflux/stream-of-json-documents.gif "returning stream of JSON documents")
+![alt text](../assets/images/posts/serving-large-datasets-with-spring-webflux/stream-of-json-documents.gif "returning stream of JSON documents")
 
 Under the hood whenever an Item is emitted from the repository it gets serialized, the response buffer is flushed (meaning that bytes start flowing to the client) but the connection is kept open until all documents are emitted, serialized and sent.
 This doesn't sound like some magical or new solution, e.g. you might remember tricks like Comet that date back several years in the past.

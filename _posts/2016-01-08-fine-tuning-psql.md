@@ -22,7 +22,7 @@ For example to store separate command history per-database and not let it be ove
 
 Let's `\set PROMPT1 '%[%033[1m%]%M %n@%/%[%033[0m%]%# '` and see how it looks like compared to the default one.
 
-![alt text](../images/posts/fine-tuning-psql/changing-the-prompt.png "changing the prompt")
+![alt text](../assets/images/posts/fine-tuning-psql/changing-the-prompt.png "changing the prompt")
 
 If you want to deconstruct the incantation we typed then it goes like this:
 `%[%033[1m%]` sets font to bold black[^2], then it prints the hostname (`%M`), username (`%n`) and database name (`%/`) then sets the font to non-bold black (`[%033[0m%]`) and prints `#` if the user is a superuser or `>` otherwise.
@@ -35,13 +35,13 @@ As you can probably guess besides the `PROMPT1` there is also `PROMPT2` and even
 If you want to use uppercase SQL keywords to make your queries more readable then tab completion is what you are looking for.
 Tab completion makes it a no-brainer once you `\set COMP_KEYWORD_CASE upper`.
 
-![alt text](../images/posts/fine-tuning-psql/tab-completion.gif "tab completion")
+![alt text](../assets/images/posts/fine-tuning-psql/tab-completion.gif "tab completion")
 
 ### Printing `NULL` values
 
 By default psql prints `NULL` values as blank spaces, but you can alter it by setting `\pset null '<null>'`[^3].
 
-![alt text](../images/posts/fine-tuning-psql/printing-null-values.png "printing NULL values")
+![alt text](../assets/images/posts/fine-tuning-psql/printing-null-values.png "printing NULL values")
 
 ### Pager behavior
 

@@ -45,7 +45,7 @@ So simple, yet so powerful and if you need to go over a record of such requests 
 You know what I mean if you're a vim user, you just execute `%!python -m json.tool` in command-line mode.
 
 <figure>
-	<img src="../images/posts/pretty-printing-json-documents-for-further-processing/formatting-json-in-vim.gif">
+	<img src="../assets/images/posts/pretty-printing-json-documents-for-further-processing/formatting-json-in-vim.gif">
 	<figcaption>Formatting JSON documents in vim</figcaption>
 </figure>
 
@@ -54,12 +54,12 @@ For example gedit allows you to execute external tools once you enable External 
 All you need to do in that case is create a new external command and then execute it.
 
 <figure>
-	<img src="../images/posts/pretty-printing-json-documents-for-further-processing/gedit-external-tools-manager.png">
+	<img src="../assets/images/posts/pretty-printing-json-documents-for-further-processing/gedit-external-tools-manager.png">
 	<figcaption>Defining format JSON command in External Tools Manager</figcaption>
 </figure>
 
 <figure>
-	<img src="../images/posts/pretty-printing-json-documents-for-further-processing/formatting-json-in-gedit.png">
+	<img src="../assets/images/posts/pretty-printing-json-documents-for-further-processing/formatting-json-in-gedit.png">
 	<figcaption>Executing format JSON command</figcaption>
 </figure>
 

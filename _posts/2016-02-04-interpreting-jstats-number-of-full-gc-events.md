@@ -16,7 +16,7 @@ For example let's look at `jstat` output for a Java process:
 
 ```sh
 $ jstat -gc -t 4648 1s
-Timestamp        S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT   
+Timestamp        S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
            19.4 8704.0 8704.0  0.0   8704.0 69952.0  12416.7   240928.0   173395.8  154352.0 149283.9 22180.0 20722.4     27    0.594   8      0.231    0.825
 ```
 
@@ -28,7 +28,7 @@ So let's gather statistics for the old generation (and metaspace) and answer the
 
 ```sh
 $ jstat -gcold -t 5007 1s
-Timestamp          MC       MU      CCSC     CCSU       OC          OU       YGC    FGC    FGCT     GCT   
+Timestamp          MC       MU      CCSC     CCSU       OC          OU       YGC    FGC    FGCT     GCT
            11.7 113064.0 109246.8  16156.0  14883.7    174784.0    115285.4     13     4    0.079    0.368
 ```
 
