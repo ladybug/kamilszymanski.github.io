@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 28/11/2017 - **Nailing down bugs in distributed systems** (live demo) @ **Warsaw Java User Group**
 - 16/11/2017 - **Reactive web services** (live coding) @ **Build Stuff**
 - 09/11/2017 - **Nailing down bugs in distributed systems** (live demo) @ **4Developers Łódź**
 - 09/11/2017 - **Reactive web services** (live coding) @ **4Developers Łódź**
