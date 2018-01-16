@@ -6,7 +6,7 @@ author_profile: true
 permalink: /activity/
 ---
 
-{% include toc title="Overview"%}
+{% include toc title="Activity"%}
 
 ## speaker
 
