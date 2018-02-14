@@ -98,7 +98,7 @@ The actual numbers are not that interesting (yes, we went close to 100 TPS) as t
 
 ![alt text](../assets/images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_classic_servlet_based_service.png "threads activity during 100 concurrent requests to classic servlet-based service")
 
-We start with less than 50 live threads in and when 100 users hit the service we quickly reach almost 150 live threads and keep them alive for some time after the traffic is gone just in case they could be reused.
+We start with less than 50 live threads and when 100 users hit the service we quickly reach almost 150 live threads and keep them alive for some time after the traffic is gone just in case they could be reused.
 It's worth pointing out that we are limited by the number of worker threads and once we exceed that number of concurrent requests we will start queuing.
 
 Now let's sprinkle our service with some reactive magic by replacing old handler method with a reactive one:
