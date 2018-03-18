@@ -22,7 +22,7 @@ documentRepository.findAll()    // this returns Flux<Document> but does it suppo
                 LOG.debug("Processing {}", document));
 ```
 
-Within that implementation we need to put 2 breakpoints, one where the repository is queried (documentRepository#findAll) and the other one where data processing happens (logger#debug).
+Within that implementation we need to put 2 breakpoints, one where the repository is queried (documentRepository#findAll) and the other one where data processing happens (LOG#debug).
 Then we run it in the debugger with Memory View opened so that we can track how the heap changes between breakpoints.
 
 To demonstrate this process let me show you 2 implementations and the results of hitting the second breakpoint for both of them.
@@ -97,7 +97,7 @@ If we resume processing and hit that breakpoint for the second time we will see 
 Now we have 2 documents loaded, and if we resume processing and hit that breakpoint for the third time we will have 3 documents loaded and so on.
 At some point GC will kick in and collect[^2] all the loaded documents besides the one currently being processed, which leads to better memory utilization and making the application more resilient.
 
-In some cases results of this test might not be that simple to interpret, e.g. some implementations might support backpressure but load results in batches to reduce communication overhead, but knowing the basic characteristics of the dataset and the datastore under test you should be able to use this test to easily verify whether the repository supports backpressure.
+In some cases results of this test might not be that simple to interpret, e.g. some implementations might support backpressure but load results in batches to reduce communication overhead, but knowing the basic characteristics of the dataset and the datastore under test you should be able to use this test to verify whether the repository supports backpressure.
 
 [^1]: in this test we examine repositories running in-process with out-of-process datastore hence the way of handling backpressure on the publisher side is as important as allowing subscribers to signal the publisher that the rate of emission is too high
 [^2]: in case of JPA and its' implementations you have to remember that managed entities won't be garbage collected
