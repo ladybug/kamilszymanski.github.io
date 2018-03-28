@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 27/03/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Warsaw IT Days**
 - 24/03/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Boiling Frogs**
 - 16/03/2018 - **Reactive APIs behind the scenes** (live coding, deep dive) @ **ByteBay**
 - 22/02/2018 - **Reactive web services** (live coding) @ **Java Professionals BY**
