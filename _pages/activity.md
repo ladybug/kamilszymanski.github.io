@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 09/04/2018 - **Reactive web services** (live coding) @ **4Developers**
 - 27/03/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Warsaw IT Days**
 - 24/03/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Boiling Frogs**
 - 16/03/2018 - **Reactive APIs behind the scenes** (live coding, deep dive) @ **ByteBay**
