@@ -240,8 +240,14 @@ Mono<String> fetchValue() {
 }
 ```
 
-By now it should be obvious that due to the thread per request model we are using 2 threads to process each request: one container worker thread handling the request and an additional thread performing blocking operation.
-To fix that we can simply move back blocking operation to the worker thread (we could also use servlet asynchronous processing facilities in order not to block the worker thread).
+By now it should be obvious that due to the thread per request model we can end up using 2 threads to process each request: one container worker thread handling the request and an additional thread performing the blocking operation.
+This separation of threads' responsibilities (or rather usage) is visible on thread count graph when we look at how long they're being kept alive which should arouse our curisity and lead to checking how this would look like if we had enough servlet container threads available beforehand to handle the traffic instead of having to spawn a new thread to accept the request if all other accepting threads were busy.
+
+[graph]
+
+We can see that properly tuning (if we know out traffic characteristics) container thread pools can lead to better aceptor threads reuse and prevent creating unnecessary threads
+
+To be sure that just 1 thread is used to process a request we could try to simply move back blocking operation to the worker thread but the worker thread limit is back in such scenario.
 
 ```java
 @GetMapping("/value")
@@ -254,8 +260,6 @@ Mono<String> fetchValue() {
 ```
 
 ![alt text](../assets/images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_tomcat_on_worker_thread_pool.png "threads activity during 100 concurrent requests to reactive service running on Tomcat and using worker threads to process requests")
-
-We are still getting similar TPS rates but this time using similar number of threads as for non-reactive implementation (mind that once we switched to Tomcat the worker thread limit is back).
 
 Of course if you follow what's going on in the Spring ecosystem you know that along with WebFlux Spring Framework 5.0 will allow you to replace MVC-style handler method mappings by functional-style RouterFunctions:
 
