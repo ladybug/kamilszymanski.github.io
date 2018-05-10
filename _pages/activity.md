@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 09/05/2018 - **Reactive web services** (live coding) @ **GeeCON**
 - 18/04/2018 - **Reactive web services** (online, live coding) @ **Java With the Best**
 - 09/04/2018 - **Reactive web services** (live coding) @ **4Developers**
 - 27/03/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Warsaw IT Days**
