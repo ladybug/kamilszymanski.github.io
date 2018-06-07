@@ -89,6 +89,7 @@ analytics:
   provider               : "google"
   google:
     tracking_id          : "UA-70935059-1"
+    anonymize_ip         : # true, false (default)
 
 
 # Site Author
