@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 12/06/2018 - **Nailing down bugs in distributed systems** (live demo) @ **JDK IO**
 - 05/06/2018 - **Architecture decision making** @ **OSEC Forum**
 - 22/05/2018 - **Nailing down bugs in distributed systems** (live demo) @ **infoShare**
 - 09/05/2018 - **Reactive web services** (live coding) @ **GeeCON**
