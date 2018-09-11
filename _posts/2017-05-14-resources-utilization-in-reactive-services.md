@@ -227,7 +227,7 @@ The TPS rates are not surprising but threads usage is:
 
 ![alt text](../assets/images/posts/resources-utilization-in-reactive-services/handling_100_concurrent_requests_to_reactive_service_on_tomcat_outside_of_worker_thread_pool.png "threads activity during 100 concurrent requests to reactive service running on Tomcat and using separate threads to process requests")
 
-We are using much more threads than we used to and some of those threads are kept alive longer than the others.
+We are using much more threads than we used to (since threads are being kept alive for same time in case they could be reused the actual number of threads used will vary depending on availability of idle threads in the pool).
 Let's take another look at the implementation and try to find the reason of such behavior:
 
 ```java
@@ -241,13 +241,7 @@ Mono<String> fetchValue() {
 ```
 
 By now it should be obvious that due to the thread per request model we can end up using 2 threads to process each request: one container worker thread handling the request and an additional thread performing the blocking operation.
-This separation of threads' responsibilities (or rather usage) is visible on thread count graph when we look at how long they're being kept alive which should arouse our curisity and lead to checking how this would look like if we had enough servlet container threads available beforehand to handle the traffic instead of having to spawn a new thread to accept the request if all other accepting threads were busy.
-
-[graph]
-
-We can see that properly tuning (if we know out traffic characteristics) container thread pools can lead to better aceptor threads reuse and prevent creating unnecessary threads
-
-To be sure that just 1 thread is used to process a request we could try to simply move back blocking operation to the worker thread but the worker thread limit is back in such scenario.
+To fix that we can simply move back blocking operation to the worker thread (we could also use servlet asynchronous processing facilities in order not to block the worker thread).
 
 ```java
 @GetMapping("/value")
