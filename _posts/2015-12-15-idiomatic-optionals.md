@@ -3,7 +3,7 @@ title: Idiomatic Optionals
 date: 2015-12-15T17:43:00+01:00
 excerpt: "Using java.util.Optional in an idiomatic way"
 tags:
-  - java
+  - Java
 ---
 
 Java 8 was released over 20 months ago and Java 7 already reached end of life, yet it's not that hard to stumble upon new code that uses classes from Java 8 but looks like it was coded in a Java 7.

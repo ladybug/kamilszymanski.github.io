@@ -3,7 +3,7 @@ title: Reliable artifact versioning schemes
 date: 2016-10-25T00:17:37+02:00
 excerpt: "Don't derive artifact versions from build numbers"
 tags:
-  - versioning
+  - CI/CD
 ---
 
 Along with the [Mockito](https://github.com/mockito/mockito) 2.1.0 release the Mockito Team published [an article describing issues with their previous artifact versioning scheme](https://github.com/mockito/mockito/wiki/Continuous-Delivery-Details#why2.1.0).

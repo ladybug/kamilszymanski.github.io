@@ -3,8 +3,7 @@ title: Jenkins job DSL
 date: 2015-12-03T13:29:50+01:00
 excerpt: "Configuring Jenkins jobs via code using Groovy-based DSL"
 tags:
-  - jenkins
-  - job-dsl
+  - CI/CD
 ---
 
 No that long ago one of our engineers made a mistake while running Jenkins CLI script and removed all jobs apart from the ones he wanted to remove.

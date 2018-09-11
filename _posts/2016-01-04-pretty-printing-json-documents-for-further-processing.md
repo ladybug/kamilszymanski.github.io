@@ -3,9 +3,7 @@ title: Pretty printing JSON documents for further processing
 date: 2016-01-04T16:50:16+01:00
 excerpt: "Formatting JSON documents from command line and inside a text editor"
 tags:
-  - command line
-  - vim
-  - gedit
+  - productivity
 ---
 
 APIs are primarily designed for computers, not for humans, yet sometimes you need to dig into raw response from such APIs.

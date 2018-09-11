@@ -3,8 +3,7 @@ title: Interpreting jstat's number of Full GC events
 date: 2016-02-04T23:58:26+01:00
 excerpt: "How results of your measurements can drift from reality when you don't validate your assumptions"
 tags:
-  - jvm
-  - java
+  - JVM
 ---
 
 "You can't control what you can't measure"[^1] and you want to control things, you don't want to just bet on luck.

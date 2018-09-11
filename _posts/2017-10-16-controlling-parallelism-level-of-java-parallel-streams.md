@@ -3,7 +3,7 @@ title: Controlling parallelism level of Java parallel streams
 date: 2017-10-16T08:21:23+02:00
 excerpt: "Busting the most common misconception about Java parallel streams"
 tags:
-  - java
+  - Java
 ---
 
 With recent Java 9 release we got many new goodies to play with and improve our solutions once we grasp those new features.

@@ -3,7 +3,7 @@ title: Optimizing Docker images for image size and build time
 date: 2015-12-10T21:50:50+01:00
 excerpt: "Image layers explained in context of image size and build time"
 tags:
-  - docker
+  - Docker
 ---
 
 Nowadays you can choose one of available storage drivers supported by Docker that suits best your environment and use-case, yet you should not even think about it until you understand image layers (not to mention images and containers).

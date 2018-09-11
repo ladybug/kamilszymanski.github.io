@@ -3,7 +3,7 @@ title: Refactoring stringly-typed systems
 date: 2018-01-21T16:45:17+01:00
 excerpt: "Picking low-hanging fruits on the way to improve domain model"
 tags:
-  - java
+  - Java
 ---
 
 Last year I joined a project that was taken over from another software house that failed to satisfy client demands.

@@ -3,7 +3,6 @@ title: Custom type renderers in IntelliJ IDEA debugger
 date: 2016-07-31T02:03:34+02:00
 excerpt: "Altering the way IntelliJ IDEA debugger displays values"
 tags:
-  - intellij idea
   - debugging
 ---
 
