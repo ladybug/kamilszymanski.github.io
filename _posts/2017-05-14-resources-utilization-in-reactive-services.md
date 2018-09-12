@@ -241,7 +241,7 @@ Mono<String> fetchValue() {
 ```
 
 By now it should be obvious that due to the thread per request model we can end up using 2 threads to process each request: one container worker thread handling the request and an additional thread performing the blocking operation.
-To fix that we can simply move back blocking operation to the worker thread (we could also use servlet asynchronous processing facilities in order not to block the worker thread).
+To reduce the number of threads used when running on servlet container (i.e. Tomcat) we can simply move back blocking operation to the worker thread (we could also use servlet asynchronous processing facilities in order not to block the worker thread).
 
 ```java
 @GetMapping("/value")
