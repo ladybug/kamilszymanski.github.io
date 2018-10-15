@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 15/10/2018 - **Building domain understanding with EventStorming** (case study) @ **DDD Warsaw**
 - 09/10/2018 - **Architecture decision making** @ **JDD**
 - 21/06/2018 - **Reactive web services** (live coding) @ **Devoxx Poland**
 - 12/06/2018 - **Nailing down bugs in distributed systems** (live demo) @ **JDK IO**
