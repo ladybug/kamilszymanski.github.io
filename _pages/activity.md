@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 19/11/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Øredev**
 - 06/11/2018 - **Building domain understanding with EventStorming** (case study) @ **Warsaw Java User Group**
 - 15/10/2018 - **Building domain understanding with EventStorming** (case study) @ **DDD Warsaw**
 - 09/10/2018 - **Architecture decision making** @ **JDD**
