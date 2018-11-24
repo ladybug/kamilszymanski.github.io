@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 24/11/2018 - **Building domain understanding with EventStorming** (case study) @ **HackYeah**
 - 19/11/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Øredev**
 - 06/11/2018 - **Building domain understanding with EventStorming** (case study) @ **Warsaw Java User Group**
 - 15/10/2018 - **Building domain understanding with EventStorming** (case study) @ **DDD Warsaw**
@@ -61,6 +62,10 @@ permalink: /activity/
 - 10/09/2013 - **[Togglz: Feature Toggle implementation for JVM](https://docs.google.com/presentation/d/1xevBcv1_Obp7_npEGvJH4pudM4sZsA5D8utM8l-ioP8/)** @ **Warsaw Java User Group**
 - 27/11/2012 - **[Apache Cassandra: scalability, performance and fault tolerance in distributed databases](https://prezi.com/zwel4wrvolss/apache-cassandra/)** @ **Warsaw Java User Group**
 - 13/08/2012 - **[Messaging with RabbitMQ](https://prezi.com/bpisxqzcc4w3/messaging-with-rabbitmq/)** @ **PyWaw**
+
+## mentor
+
+- 24/11/2018 @ **HackYeah** hackathon
 
 ## organizer
 
