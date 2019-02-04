@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 04/02/2019 - **Building domain understanding with EventStorming** (case study) @ **Agile Warsaw**
 - 24/11/2018 - **Building domain understanding with EventStorming** (case study) @ **HackYeah**
 - 19/11/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Øredev**
 - 06/11/2018 - **Building domain understanding with EventStorming** (case study) @ **Warsaw Java User Group**
