@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 26/03/2019 - **Architecture decision making** @ **Warsaw Java User Group**
 - 21/02/2019 - **Architecture decision making** @ **Polish Java User Group**
 - 04/02/2019 - **Building domain understanding with EventStorming** (case study) @ **Agile Warsaw**
 - 24/11/2018 - **Building domain understanding with EventStorming** (case study) @ **HackYeah**
@@ -67,7 +68,7 @@ permalink: /activity/
 
 ## mentor
 
-- 24/11/2018 @ **HackYeah** hackathon
+- 24-25/11/2018 @ **HackYeah** hackathon
 
 ## organizer
 
