@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 26/04/2019 - **Beyond clean code** (live coding) @ **Java Eastern Europe**
 - 27/03/2019 - **Beyond clean code** (live coding) @ **Warsaw IT Days**
 - 26/03/2019 - **Architecture decision making** @ **Warsaw Java User Group**
 - 21/02/2019 - **Architecture decision making** @ **Polish Java User Group**
