@@ -12,17 +12,17 @@ permalink: /activity/
 
 - 26/04/2019 - **Beyond clean code** (live coding) @ **Java Eastern Europe**
 - 27/03/2019 - **Beyond clean code** (live coding) @ **Warsaw IT Days**
-- 26/03/2019 - **Architecture decision making** @ **Warsaw Java User Group**
-- 21/02/2019 - **Architecture decision making** @ **Polish Java User Group**
+- 26/03/2019 - **[Architecture decision making](https://docs.google.com/presentation/d/12Xac04gKzJ8Ks_286lim7L5ulwPAFTFgdWlhvDkLQ_E/edit?usp=sharing)** @ **Warsaw Java User Group**
+- 21/02/2019 - **[Architecture decision making](https://docs.google.com/presentation/d/12Xac04gKzJ8Ks_286lim7L5ulwPAFTFgdWlhvDkLQ_E/edit?usp=sharing)** @ **Polish Java User Group**
 - 04/02/2019 - **Building domain understanding with EventStorming** (case study) @ **Agile Warsaw**
 - 24/11/2018 - **Building domain understanding with EventStorming** (case study) @ **HackYeah**
 - 19/11/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Øredev**
 - 06/11/2018 - **Building domain understanding with EventStorming** (case study) @ **Warsaw Java User Group**
 - 15/10/2018 - **Building domain understanding with EventStorming** (case study) @ **DDD Warsaw**
-- 09/10/2018 - **Architecture decision making** @ **JDD**
+- 09/10/2018 - **[Architecture decision making](https://docs.google.com/presentation/d/12Xac04gKzJ8Ks_286lim7L5ulwPAFTFgdWlhvDkLQ_E/edit?usp=sharing)** @ **JDD**
 - 21/06/2018 - **Reactive web services** (live coding) @ **Devoxx Poland**
 - 12/06/2018 - **Nailing down bugs in distributed systems** (live demo) @ **JDK IO**
-- 05/06/2018 - **Architecture decision making** @ **OSEC Forum**
+- 05/06/2018 - **[Architecture decision making](https://docs.google.com/presentation/d/12Xac04gKzJ8Ks_286lim7L5ulwPAFTFgdWlhvDkLQ_E/edit?usp=sharing)** @ **OSEC Forum**
 - 22/05/2018 - **Nailing down bugs in distributed systems** (live demo) @ **infoShare**
 - 09/05/2018 - **Reactive web services** (live coding) @ **GeeCON**
 - 18/04/2018 - **Reactive web services** (online, live coding) @ **Java With the Best**
