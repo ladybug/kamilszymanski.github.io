@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 04/06/2019 - **Example Mapping in practice** (workshop) @ **OSEC Forum**
 - 26/04/2019 - **Beyond clean code** (live coding) @ **Java Eastern Europe**
 - 27/03/2019 - **Beyond clean code** (live coding) @ **Warsaw IT Days**
 - 26/03/2019 - **[Architecture decision making](https://docs.google.com/presentation/d/12Xac04gKzJ8Ks_286lim7L5ulwPAFTFgdWlhvDkLQ_E/edit?usp=sharing)** @ **Warsaw Java User Group**
