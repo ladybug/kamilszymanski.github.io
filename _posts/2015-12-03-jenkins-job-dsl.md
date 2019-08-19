@@ -10,7 +10,7 @@ No that long ago one of our engineers made a mistake while running Jenkins CLI s
 Looking at how many jobs we have at the moment it might have been over 300 jobs combined into dozens of pipelines.
 Pretty scary you might think when you consider that we were not running scheduled backups.
 Well, in my opinion it was the best test for the continuous delivery platform we were working on for a couple of weeks.
-In less than a 15 minutes we had all the jobs back and it took so long because we didn't want to skip tests during the restore nor bring back unneeded jobs[^1].
+In less than a 15 minutes we had all the jobs back and it took so long only because we didn't want to skip tests during the restore nor bring back no longer needed jobs.
 How is that possible?
 Let me introduce Jenkins [Job DSL / Plugin](https://github.com/jenkinsci/job-dsl-plugin), a project made up of two parts: the Domain Specific Language that allows users to describe jobs using Groovy-based language, and a Jenkins plugin which manages the scripts and the updating of Jenkins jobs which are created and maintained as a result.
 
@@ -141,5 +141,3 @@ It should be easy after getting the basic concepts and if you need something to 
 After you get familiar with the DSL you can build your own around it to further simplify jobs' (or even whole pipelines) configuration.
 You can also consider describing pipelines as metadata kept inside projects' repositories that are scanned by a periodically run seed job that parses that metadata and (re-)generates jobs on any change.
 Since it's code you craft anything your CI/CD solution needs.
-
-[^1]: we had a few seed jobs each pointing to multiple (using glob patterns) scripts but to speed up platform development we didn't version control some of those seed jobs

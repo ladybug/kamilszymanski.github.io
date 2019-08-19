@@ -100,7 +100,7 @@ AccountId is just a value object, it has no identity, it doesn't change over tim
 It performs all validations in a single place and fails fast on incorrect inputs by failing to instantiate AccountId instead of failing later on on an if statement buried down several layers down the call stack.
 If it needs to protect any invariants you know where to put them and where to look for them.
 
-So far so good, but what if `Account` was an entity?
+So far so good, but what if AccountId needs to be persisted in a database?
 Well, you just implement an attribute converter:
 ```java
 public class AccountIdConverter implements AttributeConverter<AccountId, String> {

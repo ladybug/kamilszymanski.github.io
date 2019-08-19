@@ -6,10 +6,10 @@ tags:
   - JVM
 ---
 
-"You can't control what you can't measure"[^1] and you want to control things, you don't want to just bet on luck.
+*"You can't control what you can't measure"*[^1] and you want to control software you're running.
 Nonetheless measuring is not enough, you also need to know how to interpret results of such measurements.
 
-It's not hard to find examples of misinterpreted measurement results with the `free`[^2] command output being the most commonly misinterpreted one.
+It's not hard to find examples of misinterpreted measurement results with the `free`[^2] command output being one of the most commonly misinterpreted ones.
 Often lack of understanding of used terminology or it's ambiguity can be accounted for it.
 For example let's look at `jstat` output for a Java process:
 
@@ -23,7 +23,7 @@ Anyone knowing JVM Garbage Collection basics should have no trouble telling what
 Well let's try: EC stands for Eden space Capacity, EU denotes Eden space Usage, S0C - Survivor space 0 Capacity, YGC - number of Young generation Garbage Collections, YGCT - Young generation Garbage Collection Time, and so on.
 
 Pretty obvious, isn't it?
-So let's gather statistics for the old generation (and metaspace) and answer the question how many Full GCs were performed?
+So let's gather statistics for the old generation (and metaspace) and answer the question how many Full GCs[^3] were performed?
 
 ```sh
 $ jstat -gcold -t 5007 1s
@@ -32,9 +32,10 @@ Timestamp          MC       MU      CCSC     CCSU       OC          OU       YGC
 ```
 
 If your answer is 4 you might be correct or far from being correct.
-It all depends on which garbage collector monitored Java process is using.
-For Parallel GC 4 is the correct answer, but for CMS the correct[^3] answer is 2.
-If you don't believe me check the GC logs from the same Java process run:
+It all depends on which garbage collector the monitored Java process was using.
+If it was using Parallel GC the answer would be 4, but since it was using CMS the answer is different, the answer is 2.
+
+Let's check the GC logs for the analysed Java process that uses CMS collector and see where the difference comes from:
 
 ```sh
 0.408: [GC (Allocation Failure) 0.408: [ParNew: 69952K->8704K(78656K), 0.0396199 secs] 69952K->21786K(253440K), 0.0397117 secs] [Times: user=0.12 sys=0.02, real=0.04 secs] 
@@ -77,7 +78,11 @@ If you don't believe me check the GC logs from the same Java process run:
 12.274: [GC (Allocation Failure) 12.274: [ParNew: 78656K->8704K(78656K), 0.0313268 secs] 193941K->136954K(253440K), 0.0314313 secs] [Times: user=0.17 sys=0.00, real=0.03 secs] 
 ```
 
-`jstat` man-pages say that FGC stands for the number of Full GC events, so let's take another look at the GC logs, this time limiting them to single CMS cycle:
+`jstat` man-pages say that `FGC` stands for `the number of Full GC events`.
+Not the number of garbage collection cycles but the number of garbage collection events.
+The significance of `events` becomes evident if we compare 4 Full GC events reported by jstat to 2 CMS cycles that we can observe in the GC logs.
+
+Let's take one more look at the GC logs, this time narrowing down our focus to single CMS cycle:
 
 ```sh
 2.170: [GC (CMS Initial Mark) [1 CMS-initial-mark: 29844K(174784K)] 39075K(253440K), 0.0021170 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
@@ -94,11 +99,12 @@ If you don't believe me check the GC logs from the same Java process run:
 2.696: [CMS-concurrent-reset: 0.008/0.008 secs] [Times: user=0.04 sys=0.01, real=0.01 secs] 
 ```
 
-You can clearly see that CMS performs its work in several phases but just 2 of them (Initial Mark and Final Remark) count as GC events, only those that are stop-the-world phases.
+We can see that CMS performs its work in several phases and most of them run concurrently with our application.
+Only Initial Mark and Final Remark are stop-the-world phases and those are the ones that get counted by jstat as Full GC events.
 
-Should you measure something be sure what you really measure otherwise the results can keep you far from reality.
+Should you measure something make sure you know what you really measure otherwise the results can keep you far from reality.
 Always validate your assumptions and [RTFM](https://xkcd.com/293/)!
 
 [^1]: Tom DeMarco
 [^2]: [Linux is borrowing unused memory for disk caching what makes it looks like you are low on memory while you are not](http://www.linuxatemyram.com/)
-[^3]: assuming there were no failures
+[^3]: while we speak about ambiguity it's worth to note that there is no formal definition of Full GC nor Major GC in JVM Specification (kudos to [Bernd Eckenfels](https://twitter.com/eckes) for pointing this out)
