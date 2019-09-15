@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 14/09/2019 - **Example Mapping in practice** (workshop) @ **HackYeah**
 - 04/06/2019 - **Example Mapping in practice** (workshop) @ **OSEC Forum**
 - 26/04/2019 - **Beyond clean code** (live coding) @ **Java Eastern Europe**
 - 27/03/2019 - **Beyond clean code** (live coding) @ **Warsaw IT Days**
@@ -71,6 +72,7 @@ permalink: /activity/
 
 ## mentor
 
+- 14-15/09/2019 @ **HackYeah** hackathon
 - 24-25/11/2018 @ **HackYeah** hackathon
 
 ## organizer
