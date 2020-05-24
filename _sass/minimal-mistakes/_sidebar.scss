@@ -184,13 +184,19 @@
   display: table-cell;
   vertical-align: middle;
   font-family: $sans-serif;
-  z-index: 10;
+  z-index: 20;
   position: relative;
   cursor: pointer;
 
   li:last-child {
     a {
       margin-bottom: 0;
+    }
+  }
+
+  .author__urls {
+    span.label {
+      padding-left: 5px;
     }
   }
 
@@ -236,7 +242,6 @@
   border: 1px solid $border-color;
   border-radius: $border-radius;
   background: $background-color;
-  z-index: -1;
   box-shadow: 0 2px 4px 0 rgba(#000, 0.16), 0 2px 10px 0 rgba(#000, 0.12);
   cursor: default;
 
