@@ -10,6 +10,7 @@ permalink: /activity/
 
 ## speaker
 
+- 05/02/2021 - **Aiding bounded contexts design with design heuristics** (lightning talk, online) @ **Domain Driven Design Europe**
 - 05/11/2019 - **Example Mapping in practice** (case study, workshop) @ **Warsaw Java User Group**
 - 14/09/2019 - **Example Mapping in practice** (case study, workshop) @ **HackYeah**
 - 04/06/2019 - **Example Mapping in practice** (case study, workshop) @ **OSEC Forum**
@@ -28,7 +29,7 @@ permalink: /activity/
 - 05/06/2018 - **[Architecture decision making](https://docs.google.com/presentation/d/12Xac04gKzJ8Ks_286lim7L5ulwPAFTFgdWlhvDkLQ_E/edit?usp=sharing)** @ **OSEC Forum**
 - 22/05/2018 - **Nailing down bugs in distributed systems** (live demo) @ **infoShare**
 - 09/05/2018 - **Reactive web services** (live coding) @ **GeeCON**
-- 18/04/2018 - **Reactive web services** (online, live coding) @ **Java With the Best**
+- 18/04/2018 - **Reactive web services** (live coding, online) @ **Java With the Best**
 - 09/04/2018 - **Reactive web services** (live coding) @ **4Developers**
 - 27/03/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Warsaw IT Days**
 - 24/03/2018 - **Nailing down bugs in distributed systems** (live demo) @ **Boiling Frogs**
